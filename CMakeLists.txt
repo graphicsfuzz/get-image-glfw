@@ -27,13 +27,17 @@ find_package(glfw3 REQUIRED)
 set(GLFW_SRC_DIR ${CMAKE_BINARY_DIR}/deps/GLFW-prefix/src/GLFW)
 
 
-add_executable(get_image get_image.cpp ${GLFW_SRC_DIR}/deps/glad.c)
+add_executable(get_image get_image.cpp lodepng.cpp ${GLFW_SRC_DIR}/deps/glad.c)
 
 target_link_libraries(get_image glfw)
 target_include_directories(get_image PUBLIC ${GLFW_SRC_DIR}/deps)
 
 install(TARGETS get_image 
-	DESTINATION bin
+    DESTINATION bin
 )
 
 
+if(CMAKE_COMPILER_IS_GNUCXX)
+    set(CMAKE_CXX_FLAGS "-Wall -std=c++11 ${CMAKE_CXX_FLAGS}")
+    set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++")
+endif()
