@@ -1,0 +1,11 @@
+#!/bin/bash
+set -x
+set -e
+set -u
+cd ..
+mkdir -p out/linux/temp
+cd out/linux/temp
+cmake -G "Unix Makefiles" ../../.. -DCMAKE_BUILD_TYPE=Release
+cmake --build . --config Release
+cmake -DCMAKE_INSTALL_PREFIX=../install -P cmake_install.cmake
+
