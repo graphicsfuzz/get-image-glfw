@@ -8,7 +8,7 @@ You will need CMake. Look at `Dockerfile` for the required packages if building 
 
 1. Change into `build/`.
 2. Execute `./build-linux` (or another `./build-*` file for other platforms/configurations).
-3. The binaries will be in `out/linux/bin/`.
+3. The binaries will be in `out/linux/install/bin/`.
 
 Run `get_image` on the provided `simple.frag` shader to test that it works. E.g.
 
