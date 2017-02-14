@@ -17,6 +17,7 @@ pushd build
 popd
 cp out/x86_64-w64-mingw32/install/bin/* out/build_release/Windows/bin/
 
+cp simple.frag out/build_release/
 
 cd out/build_release
 zip -r ../get-image-glfw.zip *
