@@ -9,13 +9,13 @@ mkdir -p out/build_release/Linux/bin/
 pushd build
 ./build-linux
 popd
-cp out/linux/install/bin/get_image out/build_release/Linux/bin/get_image
+cp out/linux/install/bin/* out/build_release/Linux/bin/
 
 mkdir -p out/build_release/Windows/bin/
 pushd build
 ./build-x86_64-w64-mingw32
 popd
-cp out/x86_64-w64-mingw32/install/bin/get_image.exe out/build_release/Windows/bin/get_image.exe
+cp out/x86_64-w64-mingw32/install/bin/* out/build_release/Windows/bin/
 
 
 cd out/build_release

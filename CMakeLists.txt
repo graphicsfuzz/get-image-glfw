@@ -28,11 +28,15 @@ set(GLFW_SRC_DIR ${CMAKE_BINARY_DIR}/deps/GLFW-prefix/src/GLFW)
 
 
 add_executable(get_image get_image.cpp lodepng.cpp ${GLFW_SRC_DIR}/deps/glad.c)
+add_executable(get_gl_info get_gl_info.cpp ${GLFW_SRC_DIR}/deps/glad.c)
 
 target_link_libraries(get_image glfw)
-target_include_directories(get_image PUBLIC ${GLFW_SRC_DIR}/deps)
+target_link_libraries(get_gl_info glfw)
 
-install(TARGETS get_image 
+target_include_directories(get_image PUBLIC ${GLFW_SRC_DIR}/deps)
+target_include_directories(get_gl_info PUBLIC ${GLFW_SRC_DIR}/deps)
+
+install(TARGETS get_image get_gl_info
     DESTINATION bin
 )
 
