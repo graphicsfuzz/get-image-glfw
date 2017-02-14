@@ -6,7 +6,7 @@ RUN \
     gcc-mingw-w64 \
     g++ libxrandr-dev libxinerama-dev libxcursor-dev libgl1-mesa-dev \
     cmake \
-    git golang && \
+    zip git golang && \
   apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV \
