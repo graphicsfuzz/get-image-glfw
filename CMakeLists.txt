@@ -13,7 +13,7 @@ COMMAND ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE}
 WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/deps
 )
 execute_process(
-COMMAND ${CMAKE_COMMAND} -DCMAKE_INSTALL_PREFIX=../install -P cmake_install.cmake
+COMMAND ${CMAKE_COMMAND} -DCMAKE_INSTALL_PREFIX=../install -DBUILD_TYPE=${CMAKE_BUILD_TYPE} -P cmake_install.cmake
 WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/deps
 )
 # -- End build dependencies -- #
