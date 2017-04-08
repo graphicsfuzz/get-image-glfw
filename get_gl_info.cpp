@@ -2,8 +2,6 @@
 #include <GLFW/glfw3.h>
 
 #include <iostream>
-#include <GL/glext.h>
-
 
 void errorCallback(int error, const char* description) {
   std::cerr << error << ": " << description << std::endl;
@@ -20,10 +18,15 @@ template<class KT, class VT> void output(KT key, VT val) {
   std::cout << "    \"" << key << "\": \"" << val << "\",\n";
 }
 
-
 int go(int argc, char* argv[]) {
 
   glfwWindowHint(GLFW_RESIZABLE, 0);
+#ifdef __APPLE__
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+  glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+  glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+#endif
 
   GLFWwindow* window = glfwCreateWindow(640, 480, "Get gl info", NULL, NULL);
 

@@ -23,18 +23,14 @@ set(CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR}/deps/install ${CMAKE_PREFIX_PATH})
 
 find_package(glfw3 REQUIRED)
 
-# We also want to use some include/source files from the GLFW source root
-set(GLFW_SRC_DIR ${CMAKE_BINARY_DIR}/deps/GLFW-prefix/src/GLFW)
-
-
-add_executable(get_image get_image.cpp lodepng.cpp ${GLFW_SRC_DIR}/deps/glad.c)
-add_executable(get_gl_info get_gl_info.cpp ${GLFW_SRC_DIR}/deps/glad.c)
+add_executable(get_image get_image.cpp lodepng.cpp glad.c)
+add_executable(get_gl_info get_gl_info.cpp glad.c)
 
 target_link_libraries(get_image glfw)
 target_link_libraries(get_gl_info glfw)
 
-target_include_directories(get_image PUBLIC ${GLFW_SRC_DIR}/deps)
-target_include_directories(get_gl_info PUBLIC ${GLFW_SRC_DIR}/deps)
+target_include_directories(get_image PUBLIC include)
+target_include_directories(get_gl_info PUBLIC include)
 
 install(TARGETS get_image get_gl_info
     DESTINATION bin
