@@ -93,6 +93,7 @@ int go(int argc, char* argv[]) {
   std::string output("output.png");
   std::string vertex_shader;
   std::string fragment_shader;
+  std::string bin_out("");
 
   for(int i = 1; i < argc; i++) {
     std::string curr_arg = std::string(argv[i]);
@@ -119,6 +120,10 @@ int go(int argc, char* argv[]) {
       }
       else if(curr_arg == "--vertex") {
         vertex_shader = argv[++i];
+        continue;
+      }
+      else if(curr_arg == "--dump_bin") {
+        bin_out = argv[++i];
         continue;
       }
       std::cerr << "Unknown argument " << curr_arg << std::endl;
@@ -247,6 +252,17 @@ int go(int argc, char* argv[]) {
   glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
   glVertexAttribPointer(posAttribLocation, 2, GL_FLOAT, GL_FALSE, 0, 0);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indicesBuffer);
+
+
+  if(strcmp(bin_out.c_str(), "")) {
+	char binary[GL_PROGRAM_BINARY_LENGTH];
+	GLenum format;
+	GLint length;
+	glGetProgramBinary(program, GL_PROGRAM_BINARY_LENGTH, &length, &format, &binary[0]);
+	std::ofstream binaryfile(bin_out);
+	binaryfile.write(binary, length);
+	binaryfile.close();
+  }
 
   int numFrames = 0;
   bool saved = false;
