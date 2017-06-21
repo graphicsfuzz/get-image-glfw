@@ -270,7 +270,7 @@ int go(int argc, char* argv[]) {
       glUniform1f(timeLocation, numFrames / 10.0f);
     }
 
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, 0);
