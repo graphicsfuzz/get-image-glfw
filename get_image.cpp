@@ -66,6 +66,10 @@ void printProgramError(GLuint program) {
   }
 }
 
+void persistKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+  exit(EXIT_SUCCESS);
+}
+
 int go(int argc, char* argv[]) {
 
   glfwWindowHint(GLFW_RESIZABLE, 0);
@@ -290,7 +294,11 @@ int go(int argc, char* argv[]) {
         std::cerr << "Error producing PNG file: " << lodepng_error_text(png_error) << std::endl;
         return EXIT_FAILURE;
       }
-      if (!persist) {
+      if (persist) {
+        printf("Press any key to close the window...\n");
+        glfwSetKeyCallback(window, persistKeyCallback);
+      }
+      else {
         return EXIT_SUCCESS;
       }
     }
