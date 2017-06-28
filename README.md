@@ -1,3 +1,8 @@
+# Depreciated
+
+28-06-2017: Please use the `get-image-glsl` repo from now on:
+https://github.com/graphicsfuzz/get-image-glsl
+
 # Get image (GLFW)
 
 A tool for rendering a fragment shader to a PNG file.
@@ -25,4 +30,3 @@ Useful flags:
 * `--persist` - causes the shader to be rendered until the window is closed
 * `--output <OUTPUT_FILE>` - a png file will be produced at the given location with the contents of the rendered shader (default is `output.png`)
 * `--vertex <PATH_TO_VERTEX_SHADER>` - provide a custom vertex shader file rather than using the default (provided in `get_image.cpp`).
-
