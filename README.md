@@ -30,3 +30,4 @@ Useful flags:
 * `--persist` - causes the shader to be rendered until the window is closed
 * `--output <OUTPUT_FILE>` - a png file will be produced at the given location with the contents of the rendered shader (default is `output.png`)
 * `--vertex <PATH_TO_VERTEX_SHADER>` - provide a custom vertex shader file rather than using the default (provided in `get_image.cpp`).
+

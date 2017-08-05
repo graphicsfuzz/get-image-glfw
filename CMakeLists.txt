@@ -26,8 +26,8 @@ find_package(glfw3 REQUIRED)
 add_executable(get_image get_image.cpp lodepng.cpp glad.c)
 add_executable(get_gl_info get_gl_info.cpp glad.c)
 
-target_link_libraries(get_image glfw dl)
-target_link_libraries(get_gl_info glfw dl)
+target_link_libraries(get_image glfw)
+target_link_libraries(get_gl_info glfw)
 
 target_include_directories(get_image PUBLIC include)
 target_include_directories(get_gl_info PUBLIC include)
